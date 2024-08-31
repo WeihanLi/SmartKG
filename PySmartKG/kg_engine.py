@@ -8,10 +8,10 @@ def entity_to_string(entity):
     formatted_attributes = [f'{attribute_dict[keys[0]]}: {attribute_dict[keys[1]]}' for attribute_dict in attributes for keys in zip(list(attribute_dict.keys())[::2], list(attribute_dict.keys())[1::2])]
 
     # 将格式化后的属性连接为一个字符串
-    attributes_string = ', '.join(formatted_attributes)
+    attributes_string = ';\n'.join(formatted_attributes)
 
     # 创建实体的字符串表示
-    entity_string = f'[Entity]: {vertex_name}是一个{vertex_type}, 相关信息包括{attributes_string}'
+    entity_string = f'[Entity]: {vertex_name}是一个{vertex_type}, 相关信息包括：\n{attributes_string}'
 
     return entity_string
 
