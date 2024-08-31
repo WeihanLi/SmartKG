@@ -60,7 +60,9 @@ def search_kg_data(kg_name, query, kg_data_cache):
                 aliases_set = set([item["name"]])
 
             for a_item in aliases_set:
-                indices = [i for i in range(len(a_item)) if a_item.startswith(query, i)]#query.startswith(a_item, i)]
+                index = query.find(a_item)
+                indices = [index] if index != -1 else []
+
                 for index in indices:
                     result = {
                         'category': item['category'],
